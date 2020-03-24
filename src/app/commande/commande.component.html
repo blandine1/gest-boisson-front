@@ -1,0 +1,22 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading">commandes</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>date</th><th>prix total</th><th>description</th><th>client</th><th>operations</th>
+        </tr>
+        <tr *ngFor="let c of commande">
+          <td>{{c.id}}</td>
+          <td>{{c.date}}</td>
+          <td>{{c.prixTotal}}</td>
+          <td>{{c.description}}</td>
+          <td>{{c.client.nom}}</td>
+          <th><a class="clickable cursor" (click)="onEditCommande(c.id)">edit </a> |
+            <a class="clickable cursor" (click)="onDeleteCommande(c.id)">delete</a>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

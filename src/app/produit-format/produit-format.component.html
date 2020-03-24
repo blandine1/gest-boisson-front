@@ -1,0 +1,21 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading">produitFormat</div>
+    <div class="panel-body">
+     <table class="table table-striped">
+       <tr>
+         <th>ID</th><th>nom</th><th>libellé</th><th>prix</th><th>description</th><th>operation</th>
+       </tr>
+       <tr *ngFor="let pf of produitFormat">
+         <td>{{pf.id}}</td>
+         <td>{{pf.produit.nom}}</td>
+         <td>{{pf.format.libelle}}</td>
+         <td>{{pf.prix}}</td>
+         <td>{{pf.description}}</td>
+         <td><a class="clickable cursor" (click)="onEditPF(pf.id)">edit</a> |
+             <a class="clickable cursor" (click)="onDelete(pf.id)">delete</a></td>
+       </tr>
+     </table>
+    </div>
+  </div>
+</div>

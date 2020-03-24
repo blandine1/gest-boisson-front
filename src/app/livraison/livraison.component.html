@@ -1,0 +1,22 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading">livraison</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>date</th><th>description</th><th>fournisseur</th><th>operation</th>
+        </tr>
+        <tr *ngFor="let l of livraison">
+          <td>{{l.id}}</td>
+          <td>{{l.dateLivraison}}</td>
+          <td>{{l.description}}</td>
+          <td>{{l.fournisseur.nom}}</td>
+          <td>
+            <a class="clickable cursor" (click)="onEditLivraison(l.id)">edit</a> |
+            <a class="clickable cursor" (click)="onDeleeteLivraison(l.id)">delete</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

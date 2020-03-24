@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="col-lg-3">
+    <div class="panel panel-primary">
+      <div class="panel panel-heading">propriétes</div>
+      <div class="panel-body">
+        <div>
+          <div class="form-group">
+            <label>produit</label>
+            <select (change)="chargePrixProFormat()" [(ngModel)]="ligneCommande.produit" class="form-control">
+              <option *ngFor="let p of produits" [ngValue]="p">
+                {{p.nom}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>format</label>
+            <select (change)="chargePrixProFormat()" [(ngModel)]="ligneCommande.format" class="form-control">
+              <option *ngFor="let f of formats" [ngValue]="f">
+                {{f.libelle}}
+                 </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Prix unitaire</label>
+            <input type="number"  [(ngModel)]="ligneCommande.prixUnitaire" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>quantié</label>
+            <input type="number" (change)="calculPrixTotalPartielle()" [(ngModel)]="ligneCommande.quantite" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>prix total partielle</label>
+            <input type="number"  [(ngModel)]="ligneCommande.prixTotalPartielle" class="form-control">
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="ajoutCourant()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="panel panel-primary">
+      <div class="panel-heading">commandes courante</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-4">
+
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label>client:</label>
+              <select [(ngModel)]="commende.ceClient">
+                <option *ngFor="let c of clients" [ngValue]="c">
+                  {{c.nom}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <tr>
+            <th>id</th>
+            <th>produit</th>
+            <th>format</th>
+            <th>PU</th>
+            <th>Qté</th>
+            <th>Prix total partielle</th>
+            <th>Operation</th>
+          </tr>
+          <tr *ngFor="let c of listeLigneCommande">
+            <td>{{conteId()}}</td>
+            <td>{{c.produit.nom}}</td>
+            <td>{{c.format.libelle}}</td>
+            <td>{{c.prixUnitaire}}</td>
+            <td>{{c.quantite}}</td>
+            <td>{{c.prixTotalPartielle}}</td>
+            <td class="btn-link cursor" (click)="delete()"> X</td>
+          </tr>
+        </table>
+        <div class="row">
+          <div class="col-lg-7">
+
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+              <label>prix total:</label>
+              <input type="number"  [(ngModel)]="commende.cePrixTotal" >FCFA
+            </div>
+          </div>
+
+        </div>
+        <button class="btn-primary pull-right" (click)="saveLigneCommande()">save</button>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">liste des commandes</div>
+      <div class="panel-body">
+
+        <table class="table table-striped">
+          <tr>
+            <th>id</th>
+            <th>client</th>
+            <th>Prix total</th>
+            <th>date</th>
+
+            <th>Operation</th>
+          </tr>
+          <tr *ngFor="let c of facture">
+            <td>{{c.id}}</td>
+            <td>{{c.client.nom}}</td>
+            <td>{{c.prixTotal}}</td>
+            <td>{{c.date}}</td>
+            <td>
+              <a class="cursor" >view</a> |
+              <a class="cursor" >delete</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> mes gammes</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>quantite</th><th>description</th><th>date</th><th>produitFormat</th><th>operation</th>
+        </tr>
+        <tr *ngFor="let lpf of livraisProdFormat">
+          <td>{{lpf.id}}</td>
+          <td>{{lpf.quantite}}</td>
+          <td>{{lpf.description}}</td>
+          <td>{{lpf.livraison.dateLivraison}}</td>
+          <td>{{lpf.pf.id}}</td>
+          <td>
+            <a class="clickable cursor">edit</a>
+            <a class="clickable cursor">delete</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

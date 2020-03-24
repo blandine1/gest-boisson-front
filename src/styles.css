@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+.spacer{
+  margin-top: 8px;
+  margin-left: 8px;
+}
+.cursor{
+  cursor: pointer;
+}
+
+.position{
+  margin-left: 766px;
+}
+
+.active{
+  background-color: blue;
+}
+
+.marge{
+  margin-top: 0px;
+}

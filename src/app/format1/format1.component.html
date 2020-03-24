@@ -1,0 +1,20 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> Formats</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>libellé</th><th>description</th><th>operation</th>
+        </tr>
+        <tr *ngFor="let f of format">
+          <td>{{f.id}}</td>
+          <td>{{f.libelle}}</td>
+          <td>{{f.description}}</td>
+          <th><a class="clickable cursor" (click)="onEditFormat(f.id)">edit</a> |
+            <a class="clickable cursor" (click)="onDeleteFormat(f.id)">delete</a></th>
+        </tr>
+      </table>
+      <a class="clickable cursor" (click)="newFormat()">Ajouter</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading">mes poduits</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>nom</th>
+          <th>description</th>
+          <th>gamme</th>
+          <th>operation</th>
+        </tr>
+        <tr *ngFor="let p of produit">
+          <td>{{p.id}}</td>
+          <td>{{p.nom}}</td>
+          <td>{{p.description}}</td>
+          <td>{{p.gamme.nom}}</td>
+          <th><a class="clickable cursor" (click)="onEditProduit(p.id)">edit</a> |
+            <a class="clickable cursor" (click)="onDeletePoduit(p.id)">delete</a>
+          </th>
+        </tr>
+      </table>
+      <a class="clickable cursor" (click)="newProduit()">Ajouter</a>
+    </div>
+  </div>
+</div>

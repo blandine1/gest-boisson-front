@@ -1,0 +1,22 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Mes fournisseurs</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>nom</th><th>contact</th><th>operation</th>
+        </tr>
+        <tr *ngFor="let f of fournisseur">
+          <td>{{f.id}}</td>
+          <td>{{f.nom}}</td>
+          <td>{{f.contact}}</td>
+          <th>
+            <a  class="clickable cursor" (click)="onEditFournisseur(f.id)">view</a> |
+            <a  class="clickable cursor" (click)="onDelete(f.id)">delete</a>
+          </th>
+        </tr>
+      </table>
+      <button class="btn btn-info" (click)="fournisseurs()">ajouter</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> PFC</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>pf</th>
+          <th>comande</th>
+          <th>quantite</th>
+          <th>prix</th>
+          <th>description</th>
+          <th>operation</th>
+        </tr>
+        <tr *ngFor="let p of pfc">
+          <td>{{p.id}}</td>
+          <td>{{p.pf.id}}</td>
+          <td>{{p.comande.id}}</td>
+          <td>{{p.quantite}}</td>
+          <td>{{p.description}}</td>
+          <td>
+            <a>edit</a>
+            <a>delete</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

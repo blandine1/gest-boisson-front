@@ -1,0 +1,20 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> mes gammes</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>nom</th><th>description</th><th>operation</th>
+        </tr>
+        <tr *ngFor="let g of gamme">
+          <td>{{g.id}}</td>
+          <td>{{g.nom}}</td>
+          <td>{{g.description}}</td>
+          <th><a class="clickable cursor" (click)="onEditGamme(g.id)">edit</a> |
+          <a class="clickable cursor" (click)="onDeleteGamme(g.id)">delete</a></th>
+        </tr>
+      </table>
+      <a class="clickable cursor" (click)="newGamme()">Ajouter</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> mes gammes</div>
+    <div class="panel-body">
+      <div>
+        <div class="form-group">
+          <label class="control-label">nom</label>
+          <input type="text" class="form-control" [(ngModel)]="gamme.nom">
+        </div>
+        <div class="form-group">
+          <label class="control-label">description</label>
+          <input type="text" class="form-control" [(ngModel)]="gamme.description">
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="onEditGamme()">save</button>
+    </div>
+  </div>
+</div>

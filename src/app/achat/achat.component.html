@@ -1,0 +1,74 @@
+<div class="spacer">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">formulaire d'achat</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="control-label">produit</label>
+            <select [(ngModel)]="produit.id" class="form-control">
+              <option *ngFor="let p of produits" [value]="p.id">
+                {{p.nom}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="control-label">format</label>
+            <select [(ngModel)]="format.id" class="form-control">
+              <option *ngFor="let f of formats" [ngValue]="f.id">
+                {{f.libelle}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="control-label">prix unitaire</label>
+            <input type="number" class="form-control" [(ngModel)]="listeLignePF.prix_unitaireA">
+          </div>
+          <div class="form-group">
+            <label class="control-label">quantité</label>
+            <input type="number" class="form-control" [(ngModel)]="listeLigneLPF.quantite">
+          </div>
+          <div class="btn btn-primary" (click)="ajouter()" [(ngModel)]="message">Ajouter</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-8">
+
+      <div class="panel panel-primary">
+        <div class="panel panel-heading">liste de produits livré </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label>fournisseur</label>
+                <select [(ngModel)]="fournisseur.id" >
+                  <option *ngFor="let f of fournisseurs" value="f.id">
+                    {{f.nom}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+
+          </div>
+          <table class="table table-striped">
+            <tr>
+              <th>produit</th><th>format</th><th>quantite</th><th>prix unitaire</th>
+            </tr>
+            <tr *ngFor="let l of listeLIgnrPFTableau">
+              <td>{{l.produitA.nom}}</td>
+              <td>{{l.formatA.libelle}}</td>
+              <td>{{l.listeLigneLPF.quantite}}</td>
+              <td>{{l.prix_unitaireA}}</td>
+            </tr>
+          </table>
+          <button class="btn btn-primary pull-right" (click)="saveAchat()" [(ngModel)]="message">save</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

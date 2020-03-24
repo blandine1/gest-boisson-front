@@ -1,0 +1,38 @@
+<div class="spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> PFC</div>
+    <div class="panel-body">
+      <div>
+        <div class="form-group">
+          <label class="control-label">produit et Format</label>
+          <select [(ngModel)]="pf.id" class="form-control">
+            <option *ngFor="let p of pfs" [value]="p.id" >
+              {{p.prix}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label">commande</label>
+          <select [(ngModel)]="comande.id" class="form-control">
+            <option *ngFor="let c of comandes" [value]="c.id" >
+              {{c.date}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label">quantité</label>
+          <input type="number" class="form-control" [(ngModel)]="pfc.quantite">
+        </div>
+        <div class="form-group">
+          <label class="control-label">prix</label>
+          <input type="number" class="form-control" [(ngModel)]="pfc.prix">
+        </div>
+        <div class="form-group">
+          <label class="control-label">description</label>
+          <input type="number" class="form-control" [(ngModel)]="pfc.description">
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="onSavePFC()">save</button>
+    </div>
+  </div>
+</div>
