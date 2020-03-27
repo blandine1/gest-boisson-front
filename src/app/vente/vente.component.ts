@@ -114,13 +114,13 @@ export class VenteComponent implements OnInit {
   //grace a la boucle
   prixTotal(){
    // console.log(this.commende);
-    console.log(this.commende.cePrixTotal);
+    //console.log(this.commende.cePrixTotal);
     this.commende.cePrixTotal=0;
     //console.log(this.commende.cePrixTotal);
     for(let i=0; i<this.listeLigneCommande.length; i++ ){
-      console.log(this.listeLigneCommande[i].prixTotalPartielle);
+      //console.log(this.listeLigneCommande[i].prixTotalPartielle);
       this.commende.cePrixTotal=this.listeLigneCommande[i].prixTotalPartielle+this.commende.cePrixTotal;
-      console.log(this.commende.cePrixTotal);
+     // console.log(this.commende.cePrixTotal);
 
     }
   }
@@ -155,7 +155,7 @@ export class VenteComponent implements OnInit {
 
   saveLigneCommande(){
     this.commende.listeLigneCommande=this.listeLigneCommande;
-     console.log(this.commende);
+     //console.log(this.commende);
      this.serviceCommande.onSaveCommande(this.commende).subscribe(
        data=>{
          console.log(data);

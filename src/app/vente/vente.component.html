@@ -103,14 +103,13 @@
             <th>client</th>
             <th>Prix total</th>
             <th>date</th>
-
             <th>Operation</th>
           </tr>
           <tr *ngFor="let c of facture">
             <td>{{c.id}}</td>
             <td>{{c.client.nom}}</td>
             <td>{{c.prixTotal}}</td>
-            <td>{{c.date}}</td>
+            <td>{{c.date| date : 'dd/MMMM/yyyy'}}</td>
             <td>
               <a class="cursor" >view</a> |
               <a class="cursor" >delete</a>

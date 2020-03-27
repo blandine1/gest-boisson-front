@@ -9,6 +9,7 @@ import {LigneModelLPF} from './LPFModel';
 import {ModelProduitFormatAchat} from './AchatModel';
 import {ServiceProduitFormat} from '../produit-format/produitFormatService';
 import {ServiceLPF} from '../livraison-prod-format/LPFService';
+import {ModelStandartAchat} from './ModelStandartAchat';
 
 @Component({
   selector: 'app-achat',
@@ -28,8 +29,8 @@ export class AchatComponent implements OnInit {
   fournisseurs:ModelFournisseur[]=[];
   fournisseur:ModelFournisseur=new ModelFournisseur();
 
-
-  listeLigneLPF: LigneModelLPF=new LigneModelLPF();
+//ModelStandartAchat represente des donnees qui ne chagent pas lors de l'enregistrement d'une livraison
+  achat:ModelStandartAchat=new ModelStandartAchat();
   listeLignePF: ModelProduitFormatAchat= new ModelProduitFormatAchat();
   listeLIgnrPFTableau: ModelProduitFormatAchat[]=[];
 
@@ -74,28 +75,26 @@ export class AchatComponent implements OnInit {
   }
 
   ajouter(){
-    this.listeLignePF.formatA=this.format;
-    this.listeLignePF.produitA=this.produit;
-    console.log(this.listeLignePF);
     this.listeLIgnrPFTableau.push(this.listeLignePF);
     this.listeLignePF= new ModelProduitFormatAchat();
+    this.prixTotal();
+  }
+
+  prixTotal(){
+    this.achat.prixTotal=0;
+    for (let i=0;i<this.listeLIgnrPFTableau.length; i++){
+      this.achat.prixTotal=this.listeLIgnrPFTableau[i].prix_unitaireA+this.achat.prixTotal;
+    }
   }
 
 
 
-  /*saveAchat(){
-    this.listeLignePF.produitA=this.produit;
-    this.listeLignePF.formatA=this.format;
-    this.listeLignePF.listeLigneLPF=this.listeLigneLPF;
-    this.servicePF.getOnsaveProduitFormat(this.listeLignePF).subscribe(
-      (data:any)=>{
-        console.log(data);
-        this.message;
-      },
-      error1 => {
-        console.log(error1);
-      }
-    )
-  }*/
+  saveAchat(){
+   // this.achat.listeLIgnrPFTableau.listeLigneLPF=this.listeLignePF.listeLigneLPF;
+    this.achat.listeLIgnrPFTableau=this.listeLIgnrPFTableau;
+    //console.log(this.achat.listeLIgnrPFTableau);
+    console.log(this.achat);
+    this.achat=new ModelStandartAchat();
+  }
 
 }
