@@ -155,7 +155,6 @@ export class VenteComponent implements OnInit {
 
   saveLigneCommande(){
     this.commende.listeLigneCommande=this.listeLigneCommande;
-     //console.log(this.commende);
      this.serviceCommande.onSaveCommande(this.commende).subscribe(
        data=>{
          console.log(data);

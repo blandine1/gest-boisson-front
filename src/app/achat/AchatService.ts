@@ -1,22 +1,18 @@
 import {Injectable} from '@angular/core';
-import {ServiceProduitFormat} from '../produit-format/produitFormatService';
-import {ServiceLPF} from '../livraison-prod-format/LPFService';
+import {HttpClient} from '@angular/common/http';
+import {ModelStandartAchat} from './ModelStandartAchat';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ServiceAchat {
 
-
-
-
-
-
-  constructor(private produitFormat:ServiceProduitFormat,
-              private lpf:ServiceLPF ){
+  constructor(private http:HttpClient){
 
   }
 
-
-
+  getSaveAchat(achat:ModelStandartAchat): Observable<any>{
+    return  this.http.post("http://localhost:8080/produitFormats",achat)
+  }
 
 
 }

@@ -10,6 +10,7 @@ import {ModelProduitFormatAchat} from './AchatModel';
 import {ServiceProduitFormat} from '../produit-format/produitFormatService';
 import {ServiceLPF} from '../livraison-prod-format/LPFService';
 import {ModelStandartAchat} from './ModelStandartAchat';
+import {ServiceAchat} from './AchatService';
 
 @Component({
   selector: 'app-achat',
@@ -39,7 +40,8 @@ export class AchatComponent implements OnInit {
               private serviceFormat:ServiceFormat,
               private serviceFournisseur:ServiceFournisseur,
               private serviceLPF:ServiceLPF,
-              private servicePF:ServiceProduitFormat) { }
+              private servicePF:ServiceProduitFormat,
+              private serviceAchat:ServiceAchat) { }
 
   ngOnInit() {
 
@@ -88,13 +90,19 @@ export class AchatComponent implements OnInit {
   }
 
 
-
   saveAchat(){
-   // this.achat.listeLIgnrPFTableau.listeLigneLPF=this.listeLignePF.listeLigneLPF;
     this.achat.listeLIgnrPFTableau=this.listeLIgnrPFTableau;
-    //console.log(this.achat.listeLIgnrPFTableau);
-    console.log(this.achat);
-    this.achat=new ModelStandartAchat();
+    //console.log(this.achat);
+   this.serviceAchat.getSaveAchat(this.achat).subscribe(
+     data=>{
+       console.log(data);
+       this.achat=new ModelStandartAchat();
+       this.listeLIgnrPFTableau=[];
+     },
+     error1 => {
+       console.log(error1);
+     }
+   )
   }
 
 }
