@@ -92,7 +92,7 @@ export class AchatComponent implements OnInit {
 
   saveAchat(){
     this.achat.listeLIgnrPFTableau=this.listeLIgnrPFTableau;
-    //console.log(this.achat);
+   console.log(this.achat);
    this.serviceAchat.getSaveAchat(this.achat).subscribe(
      data=>{
        console.log(data);

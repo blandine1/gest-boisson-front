@@ -26,7 +26,7 @@
           </div>
           <div class="form-group">
             <label class="control-label">quantité</label>
-            <input type="number" class="form-control" [(ngModel)]="listeLignePF.listeLigneLPF.quantite">
+            <input type="number" class="form-control" [(ngModel)]="listeLignePF.quantite">
           </div>
           <div class="btn btn-primary" (click)="ajouter()" [(ngModel)]="message">Ajouter</div>
         </div>
@@ -61,7 +61,7 @@
             <tr *ngFor="let l of listeLIgnrPFTableau">
               <td>{{l.produitA.nom}}</td>
               <td>{{l.formatA.libelle}}</td>
-              <td>{{l.listeLigneLPF.quantite}}</td>
+              <td>{{l.quantite}}</td>
               <td>{{l.prix_unitaireA}}</td>
             </tr>
           </table>
