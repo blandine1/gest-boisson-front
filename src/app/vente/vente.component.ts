@@ -50,7 +50,7 @@ export class VenteComponent implements OnInit {
     this.serviceClient.getClient().subscribe(
       (data: any) => {
         this.clients = data;
-        console.log(data);
+        //console.log(data);
       },
       error1 => {
         console.log(error1);
@@ -62,7 +62,6 @@ export class VenteComponent implements OnInit {
     this.serviceFormat.getFormats().subscribe(
       (data: any) => {
         this.formats = data;
-        console.log(data);
       },
       error1 => {
         console.log(error1);
@@ -72,7 +71,6 @@ export class VenteComponent implements OnInit {
     this.serviceProduit.onGetProduit().subscribe(
       (data: any) => {
         this.produits = data;
-        console.log(data);
       },
       error1 => {
         console.log(error1);
@@ -85,8 +83,8 @@ export class VenteComponent implements OnInit {
       (data:any)=>{
         this.facture=data;
         this.dosearchGCommande();
-        console.log(data.date);
-        console.log(data);
+        //console.log(data.date);
+        //console.log(data);
       },
       error1 => {
         console.log(error1);
@@ -97,7 +95,7 @@ export class VenteComponent implements OnInit {
 
   ajoutCourant(){
 
-    console.log(this.ligneCommande);
+    //console.log(this.ligneCommande);
     this.listeLigneCommande.push(this.ligneCommande);
     this.ligneCommande=new LigneCommande();//initialisation
     this.prixTotal();
@@ -127,14 +125,14 @@ export class VenteComponent implements OnInit {
 
 
   chargePrixProFormat(){
-    console.log(this.ligneCommande.produit);
-    console.log(this.ligneCommande.format);
+    //console.log(this.ligneCommande.produit);
+    //console.log(this.ligneCommande.format);
     if (this.ligneCommande.produit==null || this.ligneCommande.format==null ) {
 
     }else {
       this.serviceProFormat.getProduitIdFormatId(this.ligneCommande.produit.id,this.ligneCommande.format.id).subscribe(
         (data:any)=>{
-          console.log(data);
+          //console.log(data);
           this.ligneCommande.prixUnitaire=data.prix;
         },
         error1 => {
